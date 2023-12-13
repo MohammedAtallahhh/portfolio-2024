@@ -1,0 +1,42 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "timezone": "Europe/Stockholm",
+  "rangeStrategy": "pin",
+  "platformAutomerge": true,
+  "schedule": ["every weekend"],
+  "vulnerabilityAlerts": {
+    "schedule": null
+  },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true,
+    "automergeType": "pr"
+  },
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "packagePatterns": ["^@sanity/", "sanity-plugin-*"],
+      "groupName": "Sanity packages",
+      "enabled": true,
+      "rangeStrategy": "update-lockfile",
+      "minor": {
+        "automerge": true
+      },
+      "patch": {
+        "automerge": true
+      },
+      "pin": {
+        "automerge": true
+      },
+      "lockFileMaintenance": {
+        "automerge": true
+      }
+    }
+  ]
+}
