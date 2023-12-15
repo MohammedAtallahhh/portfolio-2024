@@ -8,5 +8,5 @@ export const size = {
 };
 
 export default async function Image() {
-  return await defaultOg("Mohammed Atallah", "Developer and designer from Stockholm");
+  return await defaultOg("Mohammad Atallah", "Developer and designer from Stockholm");
 }

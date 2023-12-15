@@ -43,7 +43,7 @@ function Header() {
           className="rounded-2xl w-full border-2 border-imgborder bg-cover"
           width={1000}
           height={800}
-          alt="Portrait of Alvar Lagerlöf"
+          alt="Portrait of Mohammad Atallah"
           priority
         />
       </div>

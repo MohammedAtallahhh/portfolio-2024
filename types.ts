@@ -60,6 +60,7 @@ export type Experience = SanityDefaults & {
 
 export type Social = SanityDefaults & {
   networkName: string;
+  userName: string;
   link: string;
   icon: SanityImage;
 };

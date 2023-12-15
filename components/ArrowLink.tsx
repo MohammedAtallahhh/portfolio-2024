@@ -12,7 +12,7 @@ export function ArrowLink({ href, newTab = false, children }: WithChildren<Arrow
       href={href}
       target={newTab ? "_blank" : "_self"}
       rel={newTab ? "noreferrer" : ""}
-      className="text-primary font-semibold no-underline hover:underline"
+      className="text-primary font-semibold no-underline hover:underline block"
     >
       {children} →
     </Link>

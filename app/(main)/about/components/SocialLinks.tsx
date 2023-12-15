@@ -6,12 +6,14 @@ import { ArrowLink } from "components/ArrowLink";
 import { NextSanityImage } from "components/NextSanityImage";
 import { Skeleton } from "components/Skeleton";
 import { SkeletonText } from "components/SkeletonText";
+import Link from "next/link";
 
 const query = groq`
 *[_type == "social"] {
   _id,
   networkName,
   link,
+  userName,
   icon {
     asset->{
       _id,
@@ -48,15 +50,8 @@ async function SocialLinksList() {
 
   return (
     <>
-      {socialLinks.map(social => {
-        return (
-          <SocialLinkItem
-            key={social._id}
-            icon={social.icon}
-            networkName={social.networkName}
-            link={social.link}
-          />
-        );
+      {socialLinks.map(socialData => {
+        return <SocialLinkItem key={socialData._id} {...socialData} />;
       })}
     </>
   );
@@ -74,22 +69,26 @@ function SocialLinksListLoading() {
   );
 }
 
-export function SocialLinkItem({ icon, networkName, link }: Omit<Social, "_id">) {
+export function SocialLinkItem({ icon, networkName, link, userName }: Omit<Social, "_id">) {
   return (
     <li>
-      <ArrowLink newTab href={link ?? ""}>
-        <div className="inline-block mr-3 translate-y-1 ">
+      <Link
+        href={link ?? ""}
+        className="text-primary font-semibold no-underline hover:underline flex items-center gap-2"
+      >
+        <div className="inline-block">
           <NextSanityImage
             image={icon}
             placeholder="empty"
-            height={22}
-            width={22}
+            height={32}
+            width={32}
             alt={`${networkName} icon`}
           />
         </div>
 
-        <span className="font-subheading font-semibold text-xl -mt-4">{networkName}</span>
-      </ArrowLink>
+        <span className="font-subheading font-semibold text-lg">{userName}</span>
+        <span>→</span>
+      </Link>
     </li>
   );
 }

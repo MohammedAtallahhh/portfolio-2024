@@ -9,7 +9,7 @@ export const studioConfig = defineConfig({
   projectId: config.projectId,
   dataset: config.dataset,
   apiVersion: config.apiVersion,
-  title: process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || "alvar.dev",
+  title: process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || "mohammedatallah.dev",
   plugins: [deskTool(), codeInput()],
   env: {
     development: {
@@ -103,9 +103,6 @@ export const studioConfig = defineConfig({
                     name: "caption",
                     type: "string",
                     title: "Caption",
-                    options: {
-                      isHighlighted: true, // <-- make this field easily accessible
-                    },
                   },
                 ],
               },
@@ -195,9 +192,6 @@ export const studioConfig = defineConfig({
                 name: "caption",
                 type: "string",
                 title: "Caption",
-                options: {
-                  isHighlighted: true, // <-- make this field easily accessible
-                },
               },
             ],
           },
@@ -236,9 +230,6 @@ export const studioConfig = defineConfig({
                 name: "caption",
                 type: "string",
                 title: "Caption",
-                options: {
-                  isHighlighted: true, // <-- make this field easily accessible
-                },
               },
             ],
           },
